@@ -11,7 +11,7 @@ Jsonify is a drop in replacement for `flask.jsonify`;
 <img src="https://xzava.github.io/jsonify/jsonify-before.png"></img>
 
 ### after..
-<img src="https://xzava.github.io/jsonify/jsonify2.png"></img>
+<img src="https://xzava.github.io/jsonify/jsonify3.png"></img>
 
 ## Getting started
 
@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
 ### Hideable buttons
 
-<img src="https://xzava.github.io/jsonify/jsonify-buttons.png"></img>
+<img src="https://xzava.github.io/jsonify/jsonify-buttons3.png"></img>
 
 ### HTML response is only for browsers
 
