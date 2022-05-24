@@ -113,8 +113,8 @@ Try it out, Star it if you like it.
 
 
 ## See Also:
-Inspiration from this jquery plugin - with all the jquery removed, styles improved and buttons added, and connected with flask
-Inspiration also from firefox nightly, they apply a similar UI to json by default.
+- Inspiration from this jquery plugin - with all the jquery removed, styles improved and buttons added, and connected with flask
+- Inspiration also from firefox nightly, they apply a similar UI for json by default.
 
 - [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer)
 
