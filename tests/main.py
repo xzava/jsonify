@@ -27,5 +27,5 @@ def index_route():
 
 
 if __name__ == '__main__':
-	# python main.py
+	# python tests/main.py
 	app.run(port=5080, debug=app.debug)
