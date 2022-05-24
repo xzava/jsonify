@@ -108,12 +108,14 @@ Try it out, Star it if you like it.
 
 
 ## See Also:
-Largely based off this jquery plugin - with all the jquery removed, styles improved and buttons added, and connected with flask
+Inspiration from this jquery plugin - with all the jquery removed, styles improved and buttons added, and connected with flask
 
 - [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer)
 
+
 ## Donate:
 
+Making this free and useful is the right thing to do. Consider donating if you find this as useful as I do. 
 
 [<td style="text-align:center"> <img alt="Buymeacoffee logo" src="https://ci5.googleusercontent.com/proxy/bUcfJu5843uyZkufO2ah5B0cSK9zAEiPrnrMmAIrGgdi6Y2nS4VMINilrSPkWV4_wSOkz5kiWzk82Odgt4yAOLQ5zez5BiqBun0PORk6uyTFgx2tLYLMkQfZ=s0-d-e1-ft#https://cdn.buymeacoffee.com/assets/img/email-template/bmc-new-logo.png" style="max-width:100%;width:200px" class="CToWUd"> </td>](https://www.buymeacoffee.com/kaurifund)
 
