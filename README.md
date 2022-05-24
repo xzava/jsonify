@@ -3,6 +3,8 @@ UI wrapper for flask's jsonify
 
 [View Demo](https://xzava.github.io/jsonify/demo.html)
 
+## Getting started
+
 ```python
 
 # main.py
@@ -40,7 +42,7 @@ if __name__ == '__main__':
 
 ```
 
-Features:
+## Features:
 
 - Interactive JSON UI
 - Respects: `content-type: "application/json"`, ie the html UI is only shown to browsers
