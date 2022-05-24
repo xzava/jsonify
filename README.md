@@ -3,7 +3,9 @@ UI wrapper for flask's jsonify
 
 [View Demo](https://xzava.github.io/jsonify/demo.html)
 
-Jsonify is a drop in replacement for flask.jsonify, only browsers will get the html page everything else will get a normal jsonify response.
+Jsonify is a drop in replacement for `flask.jsonify`;
+- only browsers will get the html page everything else will get a normal jsonify response.
+- UI requires no imports. Pure Javascript.
 
 ## Getting started
 
@@ -100,3 +102,10 @@ if __name__ == '__main__':
 
 
 Try it out, Star it if you like it.
+
+
+
+## See Also:
+Largely based off this jquery plugin - with all the jquery removed, styles improved and buttons added, and connected with flask
+
+- [jquery.json-viewer](https://github.com/abodelot/jquery.json-viewer)
