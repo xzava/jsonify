@@ -1,7 +1,7 @@
 # Jsonify
 UI wrapper for flask's jsonify
 
-<a src="https://github.io/xzava/jsonify/demo.html">View Demo</a>
+[View Demo](https://xzava.github.io/jsonify/demo.html)
 
 ```python
 
