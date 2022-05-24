@@ -101,6 +101,9 @@ if __name__ == '__main__':
 
 <img src="https://xzava.github.io/jsonify/jsonify-buttons.png"></img>
 
+### HTML response is only for browsers
+
+<img src="https://xzava.github.io/jsonify/jsonify-curl.png"></img>
 
 ## Features:
 
