@@ -4,7 +4,7 @@ UI wrapper for flask's jsonify
 [View Demo](https://xzava.github.io/jsonify/demo.html)
 
 Jsonify is a drop in replacement for `flask.jsonify`;
-- Only browsers will get the html page everyone else will get a normal `flask.jsonify` response.
+- Only browsers will get the HTML page everyone else will get a normal `flask.jsonify` JSON response.
 - UI requires no imports. Pure Javascript.
 
 <img src="https://xzava.github.io/jsonify/jsonify.png"></img>
