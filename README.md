@@ -7,6 +7,10 @@ Jsonify is a drop in replacement for `flask.jsonify`;
 - Only browsers will get the HTML page everyone else will get a normal `flask.jsonify` JSON response.
 - UI requires no imports. Pure Javascript.
 
+### before..
+<img src="https://xzava.github.io/jsonify/jsonify-before.png"></img>
+
+### after..
 <img src="https://xzava.github.io/jsonify/jsonify2.png"></img>
 
 ## Getting started
@@ -43,12 +47,12 @@ def index_route():
 	    "name": "Cake",
 	    "description": "https://en.wikipedia.org/wiki/Doughnut",
 	    "price": 2.55,
-	    "price2": true,
+	    "price2": True,
 	    "available":
 	    {
 	      "store": 42,
 	      "warehouse2": 600,
-	      "warehouse": null
+	      "warehouse": None
 	    },
 	    "toppings": [
 	    {
