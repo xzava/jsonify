@@ -150,3 +150,5 @@ data
 *.kra
 *wile2.jpg
 .sh
+
+!__init__.py

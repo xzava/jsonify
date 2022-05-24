@@ -115,7 +115,7 @@ def jsonify(*args: t.Any, **kwargs: t.Any):
     is_broswer = any(e in request.headers.get('User-Agent', '').lower() for e in {"mozilla", "linux", "apple", "gecko", "chrome", "safari", "firefox", "iphone", "opera", "android"})
     force_json = request.headers.get("X-jsonify") == "application/json"
 
-    if app.debug:
+    if current_app.debug:
       print("JSONIFY DEBUG")
       print("#############")
       print("current_app.debug :", current_app.debug)

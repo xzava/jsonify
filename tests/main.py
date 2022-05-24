@@ -5,11 +5,12 @@ from jsonify import jsonify
 
 app = Flask(__name__)
 
+app.debug = True
 
 @app.route("/")
 def index_route():
 	""" This route does not need authentication or authorization """
-	response = {
+	data = {
 		"message": "Hello from a index endpoint! You don't need to be authenticated to see this.",
 		"endpoints": [
 			"http://localhost/api/public",
@@ -23,7 +24,7 @@ def index_route():
 		],
 		"access_token": "eyJhbGciOC02cnNuNhY4ww8g0rfHJpyESKj9DXGe0_N2IvCoVrfH2c9DXGe_N2IvCoVrfHOq43Xtc3zCi9Q", 
 	}
-	return jsonify(response)
+	return jsonify(data)
 
 
 if __name__ == '__main__':
