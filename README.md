@@ -7,7 +7,7 @@ Jsonify is a drop in replacement for `flask.jsonify`;
 - Only browsers will get the HTML page everyone else will get a normal `flask.jsonify` JSON response.
 - UI requires no imports. Pure Javascript.
 
-<img src="https://xzava.github.io/jsonify/jsonify.png"></img>
+<img src="https://xzava.github.io/jsonify/jsonify2.png"></img>
 
 ## Getting started
 
@@ -92,6 +92,11 @@ if __name__ == '__main__':
 
 
 ```
+
+### Hideable buttons
+
+<img src="https://xzava.github.io/jsonify/jsonify-buttons.png"></img>
+
 
 ## Features:
 
