@@ -1,4 +1,4 @@
-""" Add interactive UI to json output by overiding flask.jsonify
+""" Add interactive UI to json output by overriding flask.jsonify
 
     Will attempt to turn off when a non human user is detected.
 
@@ -6,19 +6,16 @@
     - Turns off when a request comes from a user agent that does not look like a browser
     - Turns off if 'Content-Type': 'application/json' ie from javascript
 
-    DONE: Will add a always on flag (will still turn off to non browsers) ie runs when debug is off
-    DONE: Will add a header flag to turn off if javascript fetch is requesting the endpoint.
-    DONE: add the template as a string on this page, so only once file contains everything needed.
-    DONE: Add timestamp in bottom corner so your knows how old the request is
 
     TODO: minimize the html payload
-    TODO: Fix css for line breaks, currently overflow is scroll when it should break if possiple.
+    TODO: Fix css for line breaks, currently overflow is scroll when it should break if possible.
           - Use white-space: pre-wrap; but I'm unsure if this looks better or not..
           - firefox's version reduces long strings with "longstring...longstrong" with a toggle
     TODO: check this still works when importing from pip
-    TODO: Add a donate button
     
-    TODO: add a pop up for session, headers, cookies
+    TODO [optional]: add a pop up for session, headers, cookies
+
+    TODO: Test how it works with custom json encoders, as json is the flask version
 
     USEAGE:
         from flask import Flask
@@ -26,15 +23,14 @@
         app = Flask(__name__)
 
 
-    BASED ON: https://github.com/abodelot/jquery.json-viewer
+    INSPIRED BY: https://github.com/abodelot/jquery.json-viewer
 
-    FireFox does something simialr by default:
+    FireFox does something similar by default:
      - they allow you to condense long strings
-     - they allow you to view raw json
-     - they allow you to filter
+     - they allow you to filter json
      - They allow you to prettyprint the raw json - should already do this with flask
 
-     Other feature are alrady shared. 
+     Other feature are already shared. 
      Of the non shared features save as a file should be included
 
 """
@@ -116,31 +112,31 @@ def jsonify(*args: t.Any, **kwargs: t.Any):
     # "##############################"
     always_on = current_app.config.get("JSONIFY_ALWAYS") or getenv("JSONIFY_ALWAYS", "").lower() == "1" # pending feature: will run when debug mode is both True and False
     content_type = request.headers.get("Content-Type") # application/json
-    is_broswer = any(e in request.headers['User-Agent'] for e in {"Mozilla", "Linux", "Apple", "Gecko", "Chrome", "Safari", "Firefox", "iPhone", "Opera", "Android"})
-    
-    print("JSONIFY DEBUG")
-    print("#############")
-    print("current_app.debug :", current_app.debug)
-    print("always_on :", always_on, type(always_on))
-    print("JSONIFY_ALWAYS :", bool(getenv("JSONIFY_ALWAYS")), type(bool(getenv("JSONIFY_ALWAYS"))))
-    print("content_type :", content_type)
-    print("is_broswer :", is_broswer)
-    print("")
-    print("request.headers :", request.headers)
-    print("")
-    print("data :", data)
-    print("")
-    print("")
+    is_broswer = any(e in request.headers.get('User-Agent', '').lower() for e in {"mozilla", "linux", "apple", "gecko", "chrome", "safari", "firefox", "iphone", "opera", "android"})
+    force_json = request.headers.get("X-jsonify") == "application/json"
 
-    # wants_json = request.headers.get("Content-Type")
+    if app.debug:
+      print("JSONIFY DEBUG")
+      print("#############")
+      print("current_app.debug :", current_app.debug)
+      print("always_on :", always_on, type(always_on))
+      print("JSONIFY_ALWAYS :", bool(getenv("JSONIFY_ALWAYS")), type(bool(getenv("JSONIFY_ALWAYS"))))
+      print("content_type :", content_type)
+      print("is_broswer :", is_broswer)
+      print("")
+      print("request.headers :", request.headers)
+      print("")
+      print("data :", data)
+      print("")
+      print("")
 
     if content_type != "application/json" and (always_on or current_app.debug) and is_broswer is True:
         # This will fail in the same way normal jsonify fails - when json.dump can not serialize a object within the dict
-        print("Returning Jsonify UI")
+        # print("Returning Jsonify UI")
         # return render_template("jsonify.html", data=json.dumps(data, indent=indent, separators=separators))
         return render_template_string(JSONIFY_TEMPLATE_STRING, data=json.dumps(data, indent=indent, separators=separators))
 
-    print("Returning Normal JSON")
+    # print("Returning Normal JSON")
     # "##############################"
     # "#   JSONFIY OVERRIDE  END    #"
     # "##############################"
@@ -1090,3 +1086,4 @@ async function getData(url = '', data = {}) {
 const data = await getData("http://127.0.0.1:5052/")
 
 """
+
