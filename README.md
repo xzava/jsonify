@@ -4,8 +4,9 @@ UI wrapper for flask's jsonify
 [View Demo](https://xzava.github.io/jsonify/demo.html)
 
 Jsonify is a drop in replacement for `flask.jsonify`;
-- Only browsers will get the HTML page everyone else will get a normal `flask.jsonify` JSON response.
-- UI requires no imports. Pure Javascript.
+- Only browsers will get the HTML page everyone else will get a normal `flask.jsonify` JSON data response.
+- UI requires no imports, no npm, Pure Javascript.
+- Useful for devlopers when debugging API's
 
 ### before..
 <img src="https://xzava.github.io/jsonify/jsonify-before.png"></img>
@@ -43,27 +44,27 @@ app.debug = True
 
 @app.route("/")
 def index_route():
-	""" This route does not need authentication or authorization """
-	data = {
-		"message": "Hello from a index endpoint! You don't need to be authenticated to see this.",
-		"endpoints": [
-			"http://localhost/api/public",
-			"http://localhost/api/private",
-			"http://localhost/api/private-scoped",
-			"http://localhost/api/optional",
-			"http://localhost/api/optional-scoped",
-			"http://localhost/api/optional-scoped",
-			"http://localhost/api/multi-scoped",
-			"http://localhost/api/optional-multi-scoped"
-		],
-		"access_token": "eyJhbGciOC02cnNuNhY4ww8g0rfHJpyESKj9DXGe0_N2IvCoVrfH2c9DXGe_N2IvCoVrfHOq43Xtc3zCi9Q", 
-	}
-	return jsonify(data)
+  """ This route does not need authentication or authorization """
+  data = {
+    "message": "Hello from a index endpoint! You don't need to be authenticated to see this.",
+    "endpoints": [
+      "http://localhost/api/public",
+      "http://localhost/api/private",
+      "http://localhost/api/private-scoped",
+      "http://localhost/api/optional",
+      "http://localhost/api/optional-scoped",
+      "http://localhost/api/optional-scoped",
+      "http://localhost/api/multi-scoped",
+      "http://localhost/api/optional-multi-scoped"
+    ],
+    "access_token": "eyJhbGciOC02cnNuNhY4ww8g0rfHJpyESKj9DXGe0_N2IvCoVrfH2c9DXGe_N2IvCoVrfHOq43Xtc3zCi9Q", 
+  }
+  return jsonify(data)
 
 
 if __name__ == '__main__':
-	# python main.py
-	app.run(port=5080, debug=app.debug)
+  # python main.py
+  app.run(port=5080, debug=app.debug)
 
 
 ```
@@ -75,6 +76,10 @@ if __name__ == '__main__':
 ### HTML response is only for browsers
 
 <img src="https://xzava.github.io/jsonify/jsonify-curl.png"></img>
+
+### HTML response is only for humans using browsers
+
+<img src="https://xzava.github.io/jsonify/jsonify-javascript.png"></img>
 
 ## Features:
 
@@ -161,6 +166,7 @@ async function getData(url='', data={}) {
 
 const data = await getData("http://127.0.0.1:5080/");
 
+console.log(data);
 
 ```
 
