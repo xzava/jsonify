@@ -499,6 +499,22 @@ JSONIFY_TEMPLATE_STRING = r"""<!doctype HTML>
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
         background-color: #555;
       }
+
+      /* @media.smaller Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px) {
+          ul.json-dict,
+          ol.json-array {
+              padding-left: 1.4em;
+          }
+
+          a.json-toggle:before {
+              /* display: none; */
+          } 
+
+          a.json-toggle:hover:before {
+              color: #1c2833;
+          }
+      }
     </style>
     <script type="text/javascript">
       /**
