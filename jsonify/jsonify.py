@@ -509,6 +509,7 @@ JSONIFY_TEMPLATE_STRING = r"""<!doctype HTML>
 
           a.json-toggle:before {
               /* display: none; */
+              color: #1c2833;
           } 
 
           a.json-toggle:hover:before {
