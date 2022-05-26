@@ -114,8 +114,8 @@ def jsonify(*args: t.Any, **kwargs: t.Any):
     content_type = request.headers.get("Content-Type") # application/json
     is_broswer = any(e in request.headers.get('User-Agent', '').lower() for e in {"mozilla", "linux", "apple", "gecko", "chrome", "safari", "firefox", "iphone", "opera", "android"})
     force_json = request.headers.get("X-jsonify") == "application/json"
-
-    if current_app.debug:
+    
+    if current_app.debug and getenv("JSONIFY_VERBOSE", "").lower() == "1":
       print("JSONIFY DEBUG")
       print("#############")
       print("current_app.debug :", current_app.debug)
@@ -130,11 +130,19 @@ def jsonify(*args: t.Any, **kwargs: t.Any):
       print("")
       print("")
 
+
     if content_type != "application/json" and (always_on or current_app.debug) and is_broswer is True:
         # This will fail in the same way normal jsonify fails - when json.dump can not serialize a object within the dict
         # print("Returning Jsonify UI")
         # return render_template("jsonify.html", data=json.dumps(data, indent=indent, separators=separators))
-        return render_template_string(JSONIFY_TEMPLATE_STRING, data=json.dumps(data, indent=indent, separators=separators))
+        html_string = render_template_string(JSONIFY_TEMPLATE_STRING, data=f"{json.dumps(data, indent=indent, separators=separators)}\n")
+        return current_app.response_class(f"{html_string}\n", mimetype="text/html")
+
+    # if content_type != "application/json" and (always_on or current_app.debug == False) and is_broswer is True:
+        # This will fail in the same way normal jsonify fails - when json.dump can not serialize a object within the dict
+        # print("Returning Jsonify UI")
+        # return render_template("jsonify.html", data=json.dumps(data, indent=indent, separators=separators))
+        # return render_template_string(JSONIFY_TEMPLATE_STRING, data=json.dumps(data, indent=indent, separators=separators))
 
     # print("Returning Normal JSON")
     # "##############################"
@@ -727,7 +735,17 @@ JSONIFY_TEMPLATE_STRING = r"""<!doctype HTML>
                   display: flex;
                   user-select: none;
                   -moz-user-select: none;
-                  max-width: 50%
+                  max-width: 50%;
+                  align-items: baseline;
+              }
+
+              #infoButton {
+                display: flex;
+                flex-direction: column-reverse;
+              }
+
+              #infoToggle {
+                align-self: flex-start;
               }
           }
 
