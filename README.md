@@ -1,5 +1,5 @@
 # Jsonify
-UI wrapper for flask's jsonify
+UI wrapper for flask's `jsonify`
 
 [View Demo](https://xzava.github.io/jsonify/demo.html)
 
