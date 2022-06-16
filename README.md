@@ -27,6 +27,9 @@ pip install git+https://github.com/xzava/jsonify.git --upgrade
 git clone https://github.com/xzava/jsonify.git
 cd jsonify
 python setup.py develop
+
+# for requirements.txt
+git+https://github.com/xzava/jsonify.git
 ```
 
 ## Getting started
